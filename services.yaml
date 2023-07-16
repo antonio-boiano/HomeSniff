@@ -1,0 +1,319 @@
+# Service ID
+start_pcap_capture:
+  # Service name as shown in UI
+  name: Start Caputring Traffic
+  # Description of the service
+  description: Capture all sniffed traffic and saves it into a PCAP file.
+  # Different fields that your service accepts
+  fields:
+    # Key of the field
+    save_file_path:
+      # Field name as shown in UI
+      name: File Path Location
+      # Description of the field
+      description: Where to save the acquired PCAP file
+      # Whether or not field is required (default = false)
+      required: true
+      # Advanced fields are only shown when the advanced mode is enabled for the user (default = false)
+      advanced: true
+      # Example value that can be passed for this field
+      example: "./forensic_capture"
+      # The default field value
+      default: "./forensic_capture"
+      # Selector (https://www.home-assistant.io/docs/blueprint/selectors/) to control the input UI for this field
+      selector:
+        text:
+    
+    split_size:
+      # Field name as shown in UI
+      name: File Maximum Dimension
+      # Description of the field
+      description: Max File dimension expressed in bytes
+      # Whether or not field is required (default = false)
+      required: false
+      # Advanced fields are only shown when the advanced mode is enabled for the user (default = false)
+      advanced: true
+      # Example value that can be passed for this field
+      example: 4098
+      selector:
+        number:
+          mode: box
+
+
+    max_number_of_files:
+      # Field name as shown in UI
+      name: Max Number of Files
+      # Description of the field
+      description: Max Number of Files it can generate when Split Size is enabled
+      # Whether or not field is required (default = false)
+      required: false
+      # Advanced fields are only shown when the advanced mode is enabled for the user (default = false)
+      advanced: true
+      # Example value that can be passed for this field
+      example: 10
+      selector:
+        number:
+          mode: box
+  
+    max_capture_time:
+      # Field name as shown in UI
+      name: Max Capturing Time
+      # Description of the field
+      description: Max Capturing Time expressed in seconds after which the Acquisition stops
+      # Whether or not field is required (default = false)
+      required: false
+      # Advanced fields are only shown when the advanced mode is enabled for the user (default = false)
+      advanced: true
+      # Example value that can be passed for this field
+      example: 100
+      selector:
+        number:
+          mode: box
+
+
+delete_capture:
+  name: Delete a Capture Process
+  description: Delete a Capture Process, this will stop the instance if running and delete it from memory
+  fields:
+    object_id:
+      name: Process ID
+      description: Process ID to delete, leave it blank to delete all processes running
+      required: false
+      advanced: true
+      selector:
+        text:
+    
+
+stop_capture:
+  name: Stop a Capture Process
+  description: Stop a Capture Process, this will stop the instance if running
+  fields:
+    object_id:
+      name: Process ID
+      description: Process ID to stop, leave it blank to stop all processes running
+      required: false
+      advanced: true
+      selector:
+        text:
+
+
+start_feat_capture:
+  name: Start Caputring Traffic with Feature extraction
+  description: Capture and convert the sniffed traffic into a CSV file. For time window = 0 you will have real time feature extraction.
+  fields:
+    save_file_path:
+      name: File Path Location
+      description: Where to save the final CSV file
+      required: true
+      advanced: false
+      example: "./forensic_capture"
+      default: "./forensic_capture"
+      selector:
+        text:
+    time_window_size:
+      name: Time Window
+      description: Time window in seconds to capture the packets
+      required: true
+      advanced: false
+      example: "5"
+      default: "5"
+      selector:
+        number:
+          mode: box
+    enable_mean_inter_arrival_time:
+      name: Mean Inter Arrival Time
+      description: Enable/Disable the feature to capture the mean inter arrival time of packets 3 bit encoding bit0 = feat on incoming packets, bit1 = feat on outgoing packets, bit2= feat on total packets
+      required: true
+      advanced: true
+      example: '111'
+      default: '111'
+      selector:
+        text:
+    enable_mean_size:
+      name: Mean Size
+      description: Enable/Disable the feature to capture the mean size of packets 3 bit encoding bit0 = feat on incoming packets, bit1 = feat on outgoing packets, bit2= feat on total packets
+      required: true
+      advanced: true
+      example: '111'
+      default: '111'
+      selector:
+        text:
+    enable_mean_payload_size:
+      name: Mean Payload Size
+      description: Enable/Disable the feature to capture the mean payload size of packets 3 bit encoding bit0 = feat on incoming packets, bit1 = feat on outgoing packets, bit2= feat on total packets
+      required: true
+      advanced: true
+      example: '111'
+      default: '111'
+      selector:
+        text:
+    enable_std_inter_arrival_time:
+      name: Standard Deviation Inter Arrival Time
+      description: Enable/Disable the feature to capture the standard deviation of inter arrival time of packets 3 bit encoding bit0 = feat on incoming packets, bit1 = feat on outgoing packets, bit2= feat on total packets
+      required: true
+      advanced: true
+      example: '111'
+      default: '111'
+      selector:
+        text:
+    enable_std_size:
+      name: Standard Deviation Size
+      description: Enable/Disable the feature to capture the standard deviation of size of packets 3 bit encoding bit0 = feat on incoming packets, bit1 = feat on outgoing packets, bit2= feat on total packets
+      required: true
+      advanced: true
+      example: '111'
+      default: '111'
+      selector:
+        text:
+    enable_std_payload_size:
+      name: Standard Deviation Payload Size
+      description: Enable/Disable the feature to capture the standard deviation of payload size of packets 3 bit encoding bit0 = feat on incoming packets, bit1 = feat on outgoing packets, bit2= feat on total packets
+      required: true
+      advanced: true
+      example: '111'
+      default: '111'
+      selector:
+        text:
+    enable_mad_inter_arrival_time:
+      name: Median Absolute Deviation Inter Arrival Time
+      description: Enable/Disable the feature to capture the median absolute deviation inter arrival time of the packets 3 bit encoding bit0 = feat on incoming packets, bit1 = feat on outgoing packets, bit2= feat on total packets
+      required: true
+      advanced: true
+      example: '111'
+      default: '111'
+      selector:
+       text:
+    enable_mad_size:
+      name: Median Absolute Deviation Size
+      description: Enable/Disable the feature to capture the median absolute deviation size of the packets 3 bit encoding bit0 = feat on incoming packets, bit1 = feat on outgoing packets, bit2= feat on total packets
+      required: true
+      advanced: true
+      example: '111'
+      default: '111'
+      selector:
+       text:
+    enable_mad_payload_size:
+      name: Median Absolute Deviation Payload Size
+      description: Enable/Disable the feature to capture the median absolute deviation payload size of the packets 3 bit encoding bit0 = feat on incoming packets, bit1 = feat on outgoing packets, bit2= feat on total packets
+      required: true
+      advanced: true
+      example: '111'
+      default: '111'
+      selector:
+       text:
+    enable_topology_map:
+      name: Topology Map
+      description: Enable/Disable the feature to map the topology of the network
+      required: true
+      advanced: true
+      example: false
+      default: 0
+      selector:
+        boolean:
+    enable_timestamp:
+      name: Timestamp
+      description: Enable/Disable the timestamp of the packets when time window is 0 sec
+      required: true
+      advanced: true
+      example: true
+      default: true
+      selector:
+        boolean:
+    enable_relative_time:
+      name: Relative Time
+      description: Enable/Disable the feature to record the relative time of the packets when time window is 0 sec
+      required: true
+      advanced: true
+      example: true
+      default: true
+      selector:
+        boolean:
+    enable_pck_length:
+      name: Packet Length
+      description: Enable/Disable the feature to record the length of the packets when time window is 0 sec
+      required: true
+      advanced: true
+      example: true
+      default: true
+      selector:
+        boolean:
+    enable_payload_data_length:
+      name: Payload Data Length
+      description: Enable/Disable the feature to record the length of the payload data of the packets when time window is 0 sec
+      required: true
+      advanced: true
+      example: true
+      default: true
+      selector:
+        boolean:
+    enable_dbm:
+      name: Dbm
+      description: Enable/Disable the feature to record the dBm of the packets when time window is 0 sec
+      required: true
+      advanced: true
+      example: true
+      default: true
+      selector:
+       boolean:
+    formatting_type:
+      name: Formatting Type
+      description: Change the formatting type, by default is src-dest paradigm when time window is 0 sec
+      required: true
+      advanced: true
+      example: false
+      default: false
+      selector:
+        boolean:
+    enable_src:
+      name: Source
+      description: Enable/Disable the feature to record the source of the packets/ the incoming packets when time window is 0 sec 
+      required: true
+      advanced: true
+      example: true
+      default: true
+      selector:
+        boolean:
+    enable_dest:
+      name: Destination
+      description: Enable/Disable the feature to record the destination of the packets/ the outgoing packets when time window is 0 sec
+      required: true
+      advanced: true
+      example: true
+      default: true
+      selector:
+        boolean:
+    feat_on_incoming_pck:
+      name: Incoming Packets
+      description: Enable/Disable Window features for incoming packets 
+      required: true
+      advanced: true
+      example: true
+      default: true
+      selector:
+        boolean:
+    feat_on_outgoing_pck:
+      name: Outgoing Packets
+      description: Enable/Disable Window features for outgoing packets
+      required: true
+      advanced: true
+      example: true
+      default: true
+      selector:
+        boolean:
+    csv_separator:
+      name: CSV char separator
+      description: Define the CSV separator to use to separe csv col.
+      required: true
+      advanced: true
+      example: ','
+      default: ','
+      selector:
+        text:
+
+
+
+
+
+
+
+
