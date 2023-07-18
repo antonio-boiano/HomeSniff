@@ -25,3 +25,7 @@ forensics_15_4:
   device_class: 'telosb' # [OPTIONAL] Type of device
 
 ```
+
+# Usage
+Once HomeSniff has been installed, go to Developer Tools, and search for "HomeSniff"
+![home](https://github-production-user-asset-6210df.s3.amazonaws.com/63819514/254334055-3347a7dd-3376-41b5-af2c-559900e83a19.png)
