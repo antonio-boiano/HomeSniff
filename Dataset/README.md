@@ -5,20 +5,17 @@ The following table presents the CIoT devices utilized as a testbed in the study
 | ID | Device Model          | Brand     | Actions                          |
 |-----|----------------------|-----------|----------------------------------|
 |  0  | PAN Coordinator      | EFR32MG21 |//                                |
-| (a) | Hue Motion Sensor    | Philips   | Motion, Light Intensity          |
-| (b) | TS011F               | Tuya      | On & Off, Power Consumption      |
-| (c) | Plug Z3              | Ledvance  | On & Off, Power Consumption      |
-| (d) | Hue White Lamp       | Philips   | On & Off, Luminosity             |
-| (e) | Door Window Sensor   | Aqara     | Open & Closed                    |
-| (f) | ZBSA-Motion Sensor   | Woolley   | Motion                           |
-| (g) | TS0043 Switch        | Tuya      | Short press, Long press, Double press |
-
+|2 (a)| Hue Motion Sensor    | Philips   | Motion, Light Intensity          |
+|7 (b)| TS011F               | Tuya      | On & Off, Power Consumption      |
+|6 (c)| Plug Z3              | Ledvance  | On & Off, Power Consumption      |
+|3 (d)| Hue White Lamp       | Philips   | On & Off, Luminosity             |
+|4 (e)| Door Window Sensor   | Aqara     | Open & Closed                    |
+|1 (f)| ZBSA-Motion Sensor   | Woolley   | Motion                           |
+|5 (g)| TS0043 Switch        | Tuya      | Short press, Long press, Double press |
+|8    | Unlabeled Traffic    | //        | //                               |
 
 
 ```bash
-Event DB UTC
-PCAP ECT UTC+2
-
 
 Network Settings
 PAN ID: EDAA
