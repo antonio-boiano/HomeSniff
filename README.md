@@ -28,4 +28,4 @@ forensics_15_4:
 
 # Usage
 Once IoTScent has been installed, go to Developer Tools, and search for "IoTScent"
-![home](https://github-production-user-asset-6210df.s3.amazonaws.com/63819514/254334055-3347a7dd-3376-41b5-af2c-559900e83a19.png)
+![home](https://github-production-user-asset-6210df.s3.amazonaws.com/63819514/266593056-d6862f85-6090-43a7-abfe-bf214076a29b.png)
